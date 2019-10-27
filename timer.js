@@ -27,7 +27,7 @@ function initializeClock(id, endtime) {
         var t = getTimeRemaining(endtime);
         if (t.total === 0) {
             audio.play();
-            modal.style.display = "block";  
+            modal.style.display = "block";
         }
 
         //   daysSpan.innerHTML = t.days;
@@ -45,7 +45,15 @@ function initializeClock(id, endtime) {
 }
 
 function startClock() {
-    var deadline = new Date(Date.parse(new Date()) + 5 * 1000);
+
+    var time = prompt("Time (HH:MM) : ");
+    var hour = time.split(":")[0];
+    var min = time.split(":")[1];
+    console.log(hour,min)
+
+    var timeInMins = (parseInt(hour) * 60) + parseInt(min);
+
+    var deadline = new Date(Date.parse(new Date()) + 1000 * 60 * timeInMins);
     initializeClock('clockdiv', deadline);
 }
 
