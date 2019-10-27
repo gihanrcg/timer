@@ -49,11 +49,12 @@ function startClock() {
     var time = prompt("Time (HH:MM) : ");
     var hour = time.split(":")[0];
     var min = time.split(":")[1];
+    var sec = time.split(":")[2];
     console.log(hour,min)
 
-    var timeInMins = (parseInt(hour) * 60) + parseInt(min);
+    var timeInSeconfs = ((parseInt(hour) * 60) + parseInt(min)) * 60 + sec;
 
-    var deadline = new Date(Date.parse(new Date()) + 1000 * 60 * timeInMins);
+    var deadline = new Date(Date.parse(new Date()) + 1000 * timeInSeconfs);
     initializeClock('clockdiv', deadline);
 }
 

@@ -12,10 +12,11 @@ button{
 }
 
 h1{
-  color: #396;
-  font-weight: 100;
-  font-size: 40px;
+  color: white;
+  font-weight: 200;
+  font-size: 60px;
   margin: 40px 0px 20px;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 #clockdiv{
@@ -49,6 +50,7 @@ h1{
 .imgs {
     -webkit-animation: anim 10s infinite linear;
     animation: anim 10s infinite linear;
+    /* filter: drop-shadow(30px 10px 4px rgba(255, 255, 0, 0.6)); */
 }
 
 @-webkit-keyframes anim {
