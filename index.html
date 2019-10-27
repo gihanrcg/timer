@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mini Hackathon</title>
+    <script src="timer.js" defer></script>
+    <link rel="stylesheet" href="timer.css" />
+    <link rel="stylesheet" href="btnStyles.css" />
+  </head>
+  <body>
+    <h1>SLIIT Mini Hackathon 2019</h1>
+    <button onclick="startClock()">Start Now</button>
+    <button
+      style="position: absolute;bottom: 10px;right:10px"
+      onclick="openFullscreen();"
+    >
+      Full Screen
+    </button>
+
+    <br /><br /><br /><br />
+    <div id="clockdiv">
+      <!-- <div>
+    <span class="days"></span>
+    <div class="smalltext">Days</div>
+  </div> -->
+      <div>
+        <span class="hours"></span>
+        <div class="smalltext">Hours</div>
+      </div>
+      <div>
+        <span class="minutes"></span>
+        <div class="smalltext">Minutes</div>
+      </div>
+      <div>
+        <span class="seconds"></span>
+        <div class="smalltext">Seconds</div>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <td>
+          <img
+            class="imgs logos"
+            src="img/Deakin_University_Logo_2017.svg"
+            alt=""
+            srcset=""
+          />
+        </td>
+        <td>
+          <img class="imgs logos" src="img/LOGO-01.png" alt="" srcset="" />
+        </td>
+        <td>
+          <img
+            class="imgs logos"
+            src="img/61659-MSP_Shield-logo_CMYK_Blue.png"
+            alt=""
+            srcset=""
+          />
+        </td>
+        <td>
+          <img
+            class="imgs logos"
+            src="img/SLIIT Global Education final logo.jpg"
+            alt=""
+            srcset=""
+          />
+        </td>
+      </tr>
+    </table>
+
+    <br />
+
+    <!-- <button onclick="closeFullscreen();">Close Fullscreen</button> -->
+
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Time is Up :)</h2>
+        </div>
+        <div class="modal-body">
+          <p>Thank you for your participation</p>
+          <p>Let's get ready for the presentation</p>
+        </div>
+        <div class="modal-footer">
+          <h3>SLIIT Mini Hackathon - 2019</h3>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
