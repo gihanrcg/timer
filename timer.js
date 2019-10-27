@@ -1,5 +1,6 @@
 var audio = new Audio("img/bell.mp3");
-
+var tick = new Audio("img/tick.mp3");
+var clockDiv = document.getElementById("clockdiv");
 
 function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
@@ -29,6 +30,10 @@ function initializeClock(id, endtime) {
             audio.play();
             modal.style.display = "block";
         }
+        if(t.total < (30 * 1000)){
+            clockDiv.style.color = "red"
+            tick.play();
+        }
 
         //   daysSpan.innerHTML = t.days;
         hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
@@ -46,13 +51,13 @@ function initializeClock(id, endtime) {
 
 function startClock() {
 
-    var time = prompt("Time (HH:MM) : ");
+    var time = prompt("Time (HH:MM) : ","04:00:00");
     var hour = time.split(":")[0];
     var min = time.split(":")[1];
     var sec = time.split(":")[2];
     console.log(hour,min)
 
-    var timeInSeconfs = ((parseInt(hour) * 60) + parseInt(min)) * 60 + sec;
+    var timeInSeconfs = ((parseInt(hour) * 60) + parseInt(min)) * 60 + parseInt(sec);
 
     var deadline = new Date(Date.parse(new Date()) + 1000 * timeInSeconfs);
     initializeClock('clockdiv', deadline);
@@ -95,14 +100,23 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function () {
-    modal.style.display = "block";
-}
+// btn.onclick = function () {
+//     modal.style.display = "block";
+// }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
+// span.onclick = function () {
+//     modal.style.display = "none";
+// }
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+
+        if(modal.style.display === 'block')
+        modal.style.display = "none";
+    }
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
