@@ -2,6 +2,8 @@ var audio = new Audio("img/bell.mp3");
 var tick = new Audio("img/tick.mp3");
 var clockDiv = document.getElementById("clockdiv");
 
+var interval;
+
 function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
     var seconds = Math.floor((t / 1000) % 60);
@@ -46,7 +48,8 @@ function initializeClock(id, endtime) {
     }
 
     updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
+    if(interval) clearInterval(interval);
+    interval = setInterval(updateClock, 1000);
 }
 
 function startClock() {
@@ -87,6 +90,14 @@ function closeFullscreen() {
         document.webkitExitFullscreen();
     } else if (document.msExitFullscreen) {
         document.msExitFullscreen();
+    }
+}
+
+function toggleTheme() {
+    if(document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark')
+    } else {
+        document.body.classList.add('dark')
     }
 }
 
